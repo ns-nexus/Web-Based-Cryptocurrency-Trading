@@ -1,0 +1,178 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D9D9D9;
+    color: #000;
+}
+
+/* Header Section */
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1.5px solid lightgray;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-left img {
+    width: 90px; /* Set the size of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Middle section (title) */    
+.header-mid {
+    flex-grow: 1; /* Take up remaining space */
+    text-align: center; /* Align text to the left */
+}
+
+.header-mid h1 {
+    color: black;
+    font-size: 22px;
+    margin: 0; /* Remove default margin */
+}
+
+/* Style for header-right container */
+.header-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+/* Learn More Button */
+.learnMore-button {
+    background-color: #FFC100;
+    color: #FFFFFF;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-right: 50px;
+    margin-top: 8px;
+}
+
+.learnMore-button:hover {
+    background-color: #fff;
+    color: #FFC100;
+    border-color: #FFC100;
+}
+
+/* Background Image Excluding Header */
+.main-background {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    background: url('./img/Bg-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* FAQ Section */
+.faq-container {
+    max-width: 800px;
+    margin: 8rem auto 2rem auto;
+    padding: 1rem;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.faq-item {
+    border-bottom: 1px solid #D9D9D9;
+    padding: 1rem 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.faq-open .faq-answer {
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background-color: black;
+    color: lightgray;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Footer Logo Section
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer-logo .logo {
+    flex: display;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+}
+
+.footer a {
+    color: #ffc100;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+
+}
+
+.footer-bottom a {
+    color: #ffc100;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+} */
+
+

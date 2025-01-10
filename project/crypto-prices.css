@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background:white /* Replace with your image path */
+}
+/* Header Section */
+.header-section {
+    height: auto;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Vertically align items */
+    background-color: white;
+    border-bottom: 1.5px solid lightgray;
+    padding: 10px 20px;
+    position: fixed; /* Fix header to top */
+    top: 0;
+    width: 100%; /* Full width */
+    z-index: 100; /* Keep header on top */
+}
+
+/* Header Left section */
+.header-left {
+    width: 100px; /* Set the width for the left sidebar */
+    display: flex;
+    align-items: center; /* Vertically align items */
+    padding-left: 10px; /* Add padding to avoid tightness */
+}
+
+.header-left img {
+    width: 90px; /* Set the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add spacing between the image and the other elements */
+}
+
+/* Middle section (title) */    
+.header-mid {
+    flex-grow: 1; /* Take up remaining space */
+    text-align: center; /* Align text to the left */
+
+}
+
+.header-mid h1 {
+    color: black;
+    font-size: 22px;
+    margin: 0; /* Remove default margin */
+}
+
+/* Header Right section - icons and buttons */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icons and button */
+}
+
+
+/* Loading Function */
+#loading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+/* Learn More Button */
+.learnMore-button {
+    background-color: #FFC100;
+    color: #FFFFFF;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-right: 50px;
+}
+
+.learnMore-button:hover {
+    background-color: #fff;
+    color: #FFC100;
+    border-color: #FFC100;
+}
+
+/* Container class */
+.container {
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+}
+h1 {
+    color: #000;
+    font-size: 2.5em;
+}
+p {
+    color: #555;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Table Format */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: left;
+}
+thead {
+    background-color: #222;
+    color: #fff;
+}
+thead th {
+    padding: 10px;
+}
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tbody tr:hover {
+    background-color: #ddd;
+}
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+tbody td.negative {
+    color: red;
+}
+tbody td.positive {
+    color: green;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.pagination-button:hover {
+    border:1px solid #FF9800;
+    color: #FF9800; /* Text color on hover */
+}
+
+.pagination button.active {
+    background-color:  #FF9800;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.change-positive {
+    color: #5CB338;
+}
+
+.change-negative {
+    color: red;
+}

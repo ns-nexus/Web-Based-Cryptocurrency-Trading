@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Prices</title>
+    <link rel="stylesheet" href="./crypto-prices.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-section">
+        <div class="header-left">
+            <img src="img\full-logo-tp.png" alt="Logo" class="logo">
+        </div>
+        <div class="header-mid">
+            <h1>Live Cryptocurrency Prices</h1>
+        </div>
+        <div class="header-right">
+            <button class="learnMore-button">Learn More</button>
+        </div>
+    </div>
+    <div id="loading">Loading...</div>
+    <div class="container">
+        <p>Track real-time prices, changes, volumes, and market caps of your favorite cryptocurrencies.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>24h % Change</th>
+                    <th>24h Volume</th>
+                    <th>Market Cap</th>
+                </tr>
+            </thead>
+        <tbody id="crypto-table-body">
+        <!-- Dynamic rows will go here -->
+        </tbody>
+        </table>
+        <div class="pagination" id="pagination">
+        <!-- Pagination buttons -->
+        </div>
+    </div>
+    <script src="./crypto-prices.js"></script>
+</body>
+</html>

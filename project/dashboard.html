@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-section">
+        <div class="header-left">
+            <img src="img\full-logo-tp.png" alt="Logo" class="logo">
+        </div>
+        <div class="header-mid">
+            <h1>Customer Dashboard</h1>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-bell"></i>
+            <button class="deposit-button">Deposit</button>
+        </div>
+    </div>
+    
+<!-- Left sidebar --> 
+    <div class="sidebar">
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <ul class="nav-links">
+            <li><a href="http://127.0.0.1:3000/zip3/project/dashboard.html" class="active"></i><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="http://127.0.0.1:3000/zip3/project/wallet.html"><i class="fas fa-wallet"></i> Wallet</a></li>
+            <li><a href="http://127.0.0.1:3000/zip3/project/trade.html"><i class="fas fa-exchange-alt"></i> Trade</a></li>
+            <li><a href="http://127.0.0.1:3000/zip3/project/community.html"><i class="fas fa-users"></i> Community</a></li>
+            <li><a href="http://127.0.0.1:3000/zip3/project/insights.html"><i class="fas fa-chart-line"></i> Insights</a></li>
+            <li><a href="http://127.0.0.1:3000/zip3/project/settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+        <div class="user-info">
+            <img src="user-profile.jpg" alt="User Profile">
+            <div>
+                <p class="user-name">Customer Name</p>
+                <p class="user-email">customer@gmail.com</p>
+            </div>
+        </div>
+    </div>  
+
+<!-- Main Section -->
+
+    <!-- Crypto Cards Section -->
+
+        <div class="main-content">
+            <div class="header-offset"></div>
+            <div class="dashboard-container">
+                <div class="crypto-cards" id="crypto-cards">
+                    <div class="crypto-card">
+                        <h3>Ethereum</h3>
+                        <p>0.00 ETH</p>
+                        <p>$0.00</p>
+                    </div>
+                    <div class="crypto-card">
+                        <h3>Bitcoin</h3>
+                        <p>0.00 BTC</p>
+                        <p>$0.00</p>
+                    </div>
+                    <div class="crypto-card">
+                        <h3>Tether</h3>
+                        <p>0.00 USDT</p>
+                        <p>$0.00</p>
+                    </div>
+                    <div class="crypto-card">
+                        <h3>Dogecoin</h3>
+                        <p>0.00 DOGE</p>
+                        <p>$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Growth Section -->
+    <div class="growth-section">
+        <div class="growth-header">
+            <h2>Growth</h2>
+            <button class="view-report-btn">View Report</button>
+        </div>
+        <div class="growth-filters">
+            <button class="growth-filter active">12 months</button>
+            <button class="growth-filter">3 months</button>
+            <button class="growth-filter">30 days</button>
+            <button class="growth-filter">7 days</button>
+            <button class="growth-filter">24 hours</button>
+        </div>
+        <div class="growth-chart-container">
+            <canvas id="growthChart"></canvas>
+        </div>
+    </div>
+
+    
+
+
+<!-- Right Sidebar -->
+    <div class="right-sidebar">
+
+        <!-- Balance Section -->
+        <div class="balance">
+            <h2>Total Balance</h2>
+            <div class="balance-details">
+                <p class="balance-amount">$0.00</p>
+                <p class="customer-id">customer123456@crypto.com</p>
+            </div>
+        </div>
+
+        <!-- Activity Section -->
+        <div class="activity-section">
+            <div class="activity-header">
+                <h3>Activity</h3>
+                <select id="activity-filter">
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+
+        <ul id="activity-list">
+            <!-- Placeholder items for BTC, ETH, USDT -->
+            <li class="activity-item placeholder">
+                <div class="activity-icon">
+                    <i class="fa-brands fa-bitcoin" style="color: #f3b9d8;"></i>
+                </div>
+                <div class="activity-details">
+                    <div class="activity-title">BTC Sold</div>
+                    <div class="activity-subtitle">Sold Bitcoin</div>
+                </div>
+                <div class="activity-amount" style="color: red">$<span class="placeholder-text">0</span></div> <!-- Placeholder for amount -->
+            </li>
+
+            <li class="activity-item placeholder">
+                <div class="activity-icon">
+                    <i class="fa-brands fa-ethereum" style="color: #b9bbde; margin-left: 5px; margin-right: 5px;"></i>
+                </div>
+                <div class="activity-details">
+                    <div class="activity-title">ETH Bought</div>
+                    <div class="activity-subtitle">Bought Ethereum</div>
+                </div>
+                <div class="activity-amount" >$<span class="placeholder-text">0</span></div> <!-- Placeholder for amount -->
+            </li>
+
+            <li class="activity-item placeholder">
+                <div class="activity-icon">
+                    <img src="img\tether.svg" alt="Tether" width="30" height="30">
+                </div>
+                <div class="activity-details">
+                    <div class="activity-title">USDT Sold</div>
+                    <div class="activity-subtitle">Sold Tether</div>
+                </div>
+                <div class="activity-amount" style="color: red">$<span class="placeholder-text">0</span></div> <!-- Placeholder for amount -->
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+    <footer>
+        <div class="footer-container">
+        <!-- Navigation Links -->
+            <div class="footer-links">
+                <a href="#">Overview</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Careers</a>
+                <a href="#">Help</a>
+                <a href="#">Privacy</a>
+            </div>
+        <!-- Email Subscription -->
+            <div class="subscribe-section">
+                <p>Stay up to date</p>
+                <form>
+                    <input type="email" placeholder="Enter your email" />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        <!-- Bottom Legal Links -->
+            <div class="footer-bottom">
+                <p>© 2024 Untitled UI. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+    </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+
+
+    
+
+</body>
+</html>
