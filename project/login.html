@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="container">
+        <form class="form-box">
+            <img src="img\full-logo-tp.png" alt="Logo" class="logo">
+            <h2>Welcome Back,</h2>
+            <p>Login to continue</p>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button class="btn primary-btn" type="submit">Login</button>
+            <div class="social-buttons">
+                <button class="btn google-btn" type="button" onclick="handleGoogleLogin()"><i class="fab fa-google"></i> Login with Google</button>
+                <button class="btn facebook-btn" type="button" onclick="handleFacebookLogin()"><i class="fab fa-facebook"></i> Login with Facebook</button>
+            </div>
+            <p>If a non-existing user, <a href="./signup.html">sign up</a></p>
+        </form>
+    </div>
+    <script src="./login.js"></script
+</body>
+</html>
