@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Crypto Trading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/faq.css') }}">
+</head>
+<body>
+    <!-- Background -->
+    <div class="main-background"></div>
+
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-left">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/full-logo-tp.png') }}" alt="Logo" class="logo">
+            </a>            
+        </div>
+        <div class="header-mid">
+            <h1>FAQ - Crypto Trading</h1>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('login') }}"><button class="learnMore-button">Learn More</button></a>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+
+        <!-- Category: Frequently Asked Questions -->
+        <div class="faq-category">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is cryptocurrency trading?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Cryptocurrency trading involves buying and selling digital assets on exchanges to profit from price movements.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is cryptocurrency trading legal?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    The legality of crypto trading depends on your country's regulations. Always check local laws before trading.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I trade cryptocurrency 24/7?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, cryptocurrency markets operate 24/7, allowing trading at any time, including weekends and holidays.
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Getting Started -->
+        <div class="faq-category">
+            <h3>Getting Started</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I create a trading account?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Sign up on a crypto exchange, complete KYC verification, deposit funds, and start trading.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the best exchange for beginners?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Popular beginner-friendly exchanges include Binance, Coinbase, and Kraken.
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Trading Strategies -->
+        <div class="faq-category">
+            <h3>Trading Strategies</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is day trading?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Day trading involves buying and selling crypto within a single day to profit from short-term price movements.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is swing trading?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Swing trading aims to capture short-to-medium-term price movements over a few days or weeks.
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Trading Tools & Indicators -->
+        <div class="faq-category">
+            <h3>Trading Tools & Indicators</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is RSI in crypto trading?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    RSI (Relative Strength Index) is a momentum indicator that helps identify overbought or oversold conditions.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is Bollinger Bands?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Bollinger Bands help traders analyze price volatility and potential reversal points.
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Security & Risks -->
+        <div class="faq-category">
+            <h3>Security & Risks</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I secure my crypto assets?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Use hardware wallets, enable 2FA, and avoid storing large amounts on exchanges.
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Advanced Trading -->
+        <div class="faq-category">
+            <h3>Advanced Trading</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is leverage in crypto trading?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Leverage allows traders to borrow funds to increase their market position, amplifying both gains and risks.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is futures trading?</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Futures trading involves buying or selling contracts that settle at a future date, often with leverage.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/faq.js') }}"></script>
+</body>
+</html>

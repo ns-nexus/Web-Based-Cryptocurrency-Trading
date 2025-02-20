@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/trade.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-section">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='img/full-logo-tp.png') }}" alt="Logo">
+        </div>
+        <div class="header-mid">
+            <h1>Trade Your Cryptocurrencies</h1>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-bell"></i>
+            <a href="{{ url_for('serve_wallet') }}"><button class="deposit-button">Deposit</button></a>
+        </div>
+    </div>
+
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('serve_dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="{{ url_for('serve_wallet') }}"><i class="fas fa-wallet"></i> Wallet</a></li>
+            <li><a href="{{ url_for('serve_trade') }}" class="active"><i class="fas fa-exchange-alt"></i> Trade</a></li>
+            <li><a href="{{ url_for('serve_community') }}"><i class="fas fa-users"></i> Community</a></li>
+            <li><a href="{{ url_for('serve_insights') }}"><i class="fas fa-chart-line"></i> Insights</a></li>
+            <li><a href="{{ url_for('serve_settings') }}"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+        <div class="logout-container">
+            <button class="logout-btn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket" style="color: #ff0040;"></i> Logout
+            </button>
+        </div>
+    </div>
+    <script>
+        function logout() {
+            fetch('/logout', { method: 'POST' }) // Send a POST request to the logout route
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url;  // Redirect to home after logout
+                }
+            })
+            .catch(error => console.error('Logout Error:', error));
+        }
+        </script>
+
+    <!-- Main Section -->
+    <div class="main">
+        <div class="trade-section">
+            <h2>Convert Your Cryptocurrency</h2>
+
+            <!-- Balance Section -->
+            <div class="balance-section">
+                <div class="balance-item">
+                    <p><strong>Bitcoin (BTC): </strong><span id="btc-balance">0.00</span> BTC</p>
+                </div>
+                <div class="balance-item">
+                    <p><strong>Ethereum (ETH): </strong><span id="eth-balance">0.00</span> ETH</p>
+                </div>
+                <div class="balance-item">
+                    <p><strong>Tether (USDT): </strong><span id="usdt-balance">0.00</span> USDT</p>
+                </div>
+            </div>
+
+            <!-- Trading Form -->
+            <div class="trade-form">
+                <div class="currency-select">
+                    <label for="from-currency">From Currency:</label>
+                    <select id="from-currency">
+                        <option value="BTC">Bitcoin (BTC)</option>
+                        <option value="ETH">Ethereum (ETH)</option>
+                        <option value="USDT">Tether (USDT)</option>
+                    </select>
+                </div>
+
+                <div class="amount-input">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" placeholder="Enter amount" />
+                </div>
+
+                <div class="currency-select">
+                    <label for="to-currency">To Currency:</label>
+                    <select id="to-currency">
+                        <option value="ETH">Ethereum (ETH)</option>
+                        <option value="BTC">Bitcoin (BTC)</option>
+                        <option value="USDT">Tether (USDT)</option>
+                    </select>
+                </div>
+
+                <div class="conversion-rate">
+                    <p>Conversion Rate: <span id="conversion-rate">Loading...</span></p>
+                </div>
+
+                <div class="total-output">
+                    <p>Total: <span id="total-output">$0.00</span></p>
+                </div>
+
+                <button class="trade-btn" onclick="executeTrade()">Trade</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example user balances (these would normally come from your backend or API)
+        let userBalances = {
+            BTC: 1.0,  // 1 BTC
+            ETH: 5.0,  // 5 ETH
+            USDT: 1000.0  // 1000 USDT
+        };
+
+        // Example of how to get real-time data, e.g., API call to fetch conversion rates
+        const exchangeRates = {
+            'BTC-ETH': 15,  // 1 BTC = 15 ETH (just an example, use real rates)
+            'BTC-USDT': 50000,  // 1 BTC = 50,000 USDT
+            'ETH-BTC': 0.066,   // 1 ETH = 0.066 BTC
+            'ETH-USDT': 3000,   // 1 ETH = 3,000 USDT
+            'USDT-BTC': 0.00002,  // 1 USDT = 0.00002 BTC
+            'USDT-ETH': 0.00033   // 1 USDT = 0.00033 ETH
+        };
+
+        document.getElementById('from-currency').addEventListener('change', updateConversion);
+        document.getElementById('to-currency').addEventListener('change', updateConversion);
+        document.getElementById('amount').addEventListener('input', updateTotal);
+
+        // Function to update the displayed balances
+        function updateBalances() {
+            document.getElementById('btc-balance').textContent = userBalances.BTC.toFixed(2);
+            document.getElementById('eth-balance').textContent = userBalances.ETH.toFixed(2);
+            document.getElementById('usdt-balance').textContent = userBalances.USDT.toFixed(2);
+        }
+
+        // Update the conversion rate
+        function updateConversion() {
+            const fromCurrency = document.getElementById('from-currency').value;
+            const toCurrency = document.getElementById('to-currency').value;
+            const rateKey = `${fromCurrency}-${toCurrency}`;
+            const rate = exchangeRates[rateKey] || 0;
+            document.getElementById('conversion-rate').textContent = rate ? `${rate} ${toCurrency} per 1 ${fromCurrency}` : 'Not Available';
+            updateTotal();
+        }
+
+        // Calculate the total based on the entered amount
+        function updateTotal() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const fromCurrency = document.getElementById('from-currency').value;
+            const toCurrency = document.getElementById('to-currency').value;
+            const rateKey = `${fromCurrency}-${toCurrency}`;
+            const rate = exchangeRates[rateKey] || 0;
+            const total = rate * amount;
+            document.getElementById('total-output').textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Execute the trade (Placeholder function)
+        function executeTrade() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const fromCurrency = document.getElementById('from-currency').value;
+            const toCurrency = document.getElementById('to-currency').value;
+            const rateKey = `${fromCurrency}-${toCurrency}`;
+            const rate = exchangeRates[rateKey] || 0;
+
+            if (amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+
+            if (userBalances[fromCurrency] < amount) {
+                alert(`You don't have enough ${fromCurrency} to complete this transaction.`);
+                return;
+            }
+
+            // Update the user's balance after trade
+            userBalances[fromCurrency] -= amount;
+            userBalances[toCurrency] += rate * amount;
+
+            alert(`You traded ${amount} ${fromCurrency} for ${rate * amount} ${toCurrency}.`);
+
+            // Update the balance display after trade
+            updateBalances();
+        }
+
+        // Initial call to set up the conversion rate and balance
+        updateConversion();
+        updateBalances();
+    </script>
+
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+    <!-- Navigation Links -->
+        <div class="footer-links">
+            <a href="{{ url_for('serve_home') }}">Home</a>
+            <a href="{{ url_for('serve_about') }}">About</a>
+            <a href="#">Contact</a>
+
+        </div>
+    <!-- Email Subscription -->
+        <div class="subscribe-section">
+            <p>Stay up to date</p>
+            <form>
+                <input type="email" placeholder="Enter your email" />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    <!-- Bottom Legal Links -->
+        <div class="footer-bottom">
+            <p>© 2025 TradeSphere. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+</div>
+</footer>
+
+
+</body>
+</html>
+

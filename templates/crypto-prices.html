@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Prices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crypto-prices.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header-section">
+        <div class="header-left">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/full-logo-tp.png') }}" alt="Logo" class="logo">
+            </a>
+        </div>
+        <div class="header-mid">
+            <h1>Live Cryptocurrency Prices</h1>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('login') }}"><button class="learnMore-button">Learn More</button></a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <p>Track real-time prices, 24h changes, and trading volumes of your favorite cryptocurrencies.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Coin</th>
+                    <th>Price (USD)</th>
+                    <th>24h % Change</th>
+                    <th>24h Volume</th>
+                </tr>
+            </thead>
+            <tbody id="crypto-table-body">
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+
+        <!-- Pagination Section -->
+        <div class="pagination-container">
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/crypto-prices.js') }}"></script>
+</body>
+</html>
