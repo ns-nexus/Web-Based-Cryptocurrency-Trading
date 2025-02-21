@@ -1,0 +1,759 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox layout to keep footer at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color:  #ffffff;
+}
+
+main {
+    flex: 1; /* Content grows to fill space */
+}
+/* Remove margins from other containers */
+.container, section, div {
+    margin: 0;
+    padding: 0;
+}
+
+.container:last-child {
+    margin-bottom: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+    color: black;
+    font-family: 'poppins', sans-serif;
+}
+
+/* Header Section */
+.header-section {
+    height: auto;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Vertically align items */
+    background-color: white;
+    border-bottom: 1.5px solid lightgray;
+    padding: 10px 20px;
+    position: fixed; /* Fix header to top */
+    top: 0;
+    width: 100%; /* Full width */
+    z-index: 100; /* Keep header on top */
+}
+
+/* Header Left section */
+.header-left {
+    width: 100px; /* Set the width for the left sidebar */
+    display: flex;
+    align-items: center; /* Vertically align items */
+    padding-left: 10px; /* Add padding to avoid tightness */
+}
+
+.header-left img {
+    width: 90px; /* Set the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add spacing between the image and the other elements */
+}
+
+/* Middle section (title) */
+.header-mid {
+    flex-grow: 1; /* Take up remaining space */
+    text-align: left; /* Align text to the left */
+    margin-left: 180px;
+
+}
+
+.header-mid h1 {
+    color: black;
+    font-size: 18px;
+    margin: 0; /* Remove default margin */
+}
+
+/* Header Right section - icons and buttons */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icons and button */
+}
+
+.header-right i {
+    color: #FFC100; 
+    font-size: 25px; 
+    cursor: pointer; 
+}
+
+/* Deposit Button */
+.deposit-button {
+    background-color: #007bff;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-right: 50px;
+}
+
+.deposit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Left Sidebar */
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(#FFC100, #FFB300, #b86403);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.search-bar input {
+    margin-top: 60px;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: -50px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    background-color: ghostwhite;
+    color: black;
+}
+
+.logout-container {
+    width: 250px;
+    height: 10%;
+    background-color: transparent;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: 0px solid #ff0040;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+
+/* Main Section */
+
+.main-content {
+    margin-left: 250px;
+    margin-right: 250px;
+    padding-top: 60px;
+    padding: 20px;
+    background-color: white;
+    flex: 1;
+}
+
+.dashboard-container {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Crypto Cards Section */
+
+.crypto-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.crypto-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.crypto-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+}
+
+
+/* Page Container */
+.page-container {
+    display: flex; /* Enables flex layout */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Takes full viewport height */
+    background-color: #0e0f16; /* Black background */
+    padding: 0 200px; /* Adds left and right sidebar space */
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
+}
+
+.growth-section {
+    background-color: white;
+    width: 51%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 350px;
+    height: auto;
+}
+
+.growth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.growth-section h2 {
+    color: black;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.view-report-btn {
+    background-color: #FFC100;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.view-report-btn:hover {
+    background-color: #e6a800;
+}
+
+.growth-filters {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.growth-filter {
+    background: none;
+    color: black;
+    border: 0px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.growth-filter:hover, .growth-filter.active {
+    background-color: #FFC100;
+    border-color: white;
+    color: white;
+}
+
+.growth-chart-container {
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+
+canvas#growthChart {
+    max-width: 100%;
+}
+
+
+/* Right Sidebar */
+
+.right-sidebar {
+    width: 250px;
+    background: linear-gradient( #777, #444, black);
+    padding: 20px;
+    position: fixed;
+    height: 72%;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+
+/* Total Balance Card Styling */
+.right-sidebar .balance {
+    background: linear-gradient(135deg, #007bff, #0a58ca); /* Gradient background */
+    border-radius: 10px; /* Rounded corners */
+    color: white; /* Text color */
+    padding: 20px; /* Inner spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    position: relative;
+    overflow: hidden; /* Ensures no overflow */
+    margin-top: 65px;
+}
+
+.right-sidebar .balance h2 {
+    font-size: 14px; /* Small title */
+    margin: 0;
+    text-transform: uppercase; /* Uppercase text */
+    font-weight: 500; /* Medium weight */
+    opacity: 0.9; /* Slight transparency */
+}
+
+.right-sidebar .balance-details {
+    margin-top: 10px;
+}
+
+.right-sidebar .balance-details .balance-amount {
+    font-size: 28px; /* Large font size for amount */
+    font-weight: bold; /* Bold weight */
+    margin: 5px 0;
+}
+
+.right-sidebar .balance-details .customer-id {
+    font-size: 12px; /* Small font for customer ID */
+    opacity: 0.8; /* Light opacity */
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+.right-sidebar .balance-details .customer-id::after {
+    content: '\f0c5'; /* Clipboard FontAwesome icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/* Right Sidebar - Activity Log */
+.activity-section {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 210px;
+    margin-top: 20px;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow for better visual appeal */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering content horizontally */
+    justify-content: center;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%; /* Ensure header takes full width */
+}
+
+.activity-header h3 {
+    font-size: 15px;
+    font-weight: thin;
+    color: black; /* Dark color for header text */
+    margin: 0;
+    text-align: center; /* Center align header text */
+}
+
+#activity-filter {
+    background-color: lightsalmon;
+    color: white;
+    border: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    align-self: center; /* Center button within its container */
+}
+
+#activity-filter:hover {
+    background-color: black; /* Hover effect for button */
+}
+
+ul#activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0; /* Light border for separation */
+    width: 100%;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon i {
+    font-size: 30px; /* Match the size of the replaced images */
+    
+}
+
+.activity-details {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.activity-title {
+    font-weight: bold;
+    color: #2E333B; /* Dark color for title */
+    font-size: 14px;
+}
+
+.activity-subtitle {
+    font-size: 12px;
+    color: #888; /* Subtle color for subtitle */
+}
+
+.activity-amount {
+    font-weight: bold;
+    color: #4CAF50; /* Green color for amounts */
+}
+
+
+
+/* Footer */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #0e0f16; /* Dark background */
+    color: #b3b3b3; /* Light gray text */
+    padding: 20px;
+    position: relative;
+    margin-left: 280px;
+    box-sizing: border-box;
+}
+  /* Main Footer Wrapper */
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 480px); /* Leave space for left and right sidebars (240px each) */
+    margin: 0 auto;
+    padding: 0 20px; /* Internal padding for content */
+    box-sizing: border-box;
+}
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.footer-links a {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #ffffff; /* Hover Effect */
+}
+/* Subscription Section */
+.subscribe-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.subscribe-section p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff; /* White color for contrast */
+    margin: 0px; /* Remove any default margin */
+}
+.subscribe-section form {
+    display: flex;
+    gap: 10px;
+}
+.subscribe-section input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+}
+.subscribe-section button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.subscribe-section button:hover {
+    background-color: #0056b3;
+}
+/* Footer Bottom Section */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    border-top: 1px solid #2d2e36;
+    padding-top: 10px;
+    color: #888;
+}
+.footer-bottom .legal-links {
+    display: flex;
+    gap: 15px;
+}
+.footer-bottom .legal-links a {
+    text-decoration: none;
+    color: #888;
+    transition: color 0.3s;
+}
+.footer-bottom .legal-links a:hover {
+    color: #ffffff;
+}
+
+.crypto-news, .upcoming-events {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin-left: 20%;
+}
+
+.crypto-news h2, .upcoming-events h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.crypto-news ul, .upcoming-events ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.crypto-news ul li, .upcoming-events ul li {
+    margin-bottom: 10px;
+}
+
+.crypto-news ul li a, .upcoming-events ul li {
+    text-decoration: none;
+    color: #5670ef;
+}
+
+.crypto-news ul li a:hover, .upcoming-events ul li:hover {
+    color: #ffc100;
+}
+
+.event-date {
+    font-weight: bold;
+}
+
+.market-trend {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+
+.market-trend h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#marketChart {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Wallet Page Styles */
+
+
+.wallet-create, .deposit-withdraw {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.wallet-create h2, .deposit-withdraw h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.button {
+    background-color: #ffc100;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ff9f00;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+/* Wallet Section */
+.wallet-create, .deposit-withdraw {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.wallet-create h2, .deposit-withdraw h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.wallet-create p, .wallet-create span {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Style for the wallet section */
+.wallet-section {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.wallet-details {
+    display: flex;
+    align-items: center;
+}
+
+#wallet-address {
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 10px;
+}
+
+.copy-btn {
+    padding: 5px 10px;
+    background-color: #5670ef;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #3c57d1;
+}
+
+.copy-btn:focus {
+    outline: none;
+}
