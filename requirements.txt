@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-Cors
+pytz
+opencv-python
+numpy
+face-recognition
+dlib
+cmake
+sqlite3
+bcrypt
