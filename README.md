@@ -1,4 +1,4 @@
-<img align="right" src="https://vbr.nathanchung.dev/badge?page_id=ns-nexus.ns-nexus/Web-Based-Cryptocurrency-Trading/&color=55acb7&style=for-the-badge&logo=Github" />
+<img align="right" src="https://vbr.nathanchung.dev/badge?page_id=ns-nexus.ns-nexus/Web-Based-Cryptocurrency-Trading/&color=55acb7&style=for-the-badge&logo=Github"/>
 <br>
 <br>
 <div align="center">
