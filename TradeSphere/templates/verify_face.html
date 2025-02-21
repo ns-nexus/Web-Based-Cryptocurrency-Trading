@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Face</title>
+</head>
+<body>
+    <h2>Face Verification for Login</h2>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="verify">Verify</button>
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <script>
+        const video = document.getElementById('video');
+        const userId = "{{ user_id }}"; // Get user_id from Flask template
+    
+        // Access webcam
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => { video.srcObject = stream; })
+            .catch(error => console.error("Camera access error:", error));
+    
+        document.getElementById('verify').addEventListener('click', async () => {
+            const canvas = document.getElementById('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            
+            const imageBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg'));
+            const formData = new FormData();
+            formData.append('image', imageBlob);
+    
+            fetch(`/check_face/${userId}`, {  // Use the correct user ID in URL
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => { 
+                alert(data.message);
+                if (data.success) {
+                    window.location.href = "/dashboard";  // Redirect after successful verification
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Crypto Trading Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div id="logo">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/full-logo.png') }}" alt="">
+            </a>
+        </div>
+        <ul class="nav" id="nav">
+            <ul class="navLogo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='img/full-logo.png') }}" alt="">
+                </a>
+            </ul>
+
+            <li class="nav-link"><a href="{{ url_for('serve_about') }}">About Us</a></li>
+            <li class="nav-link"><a href="{{ url_for('serve_crypto_prices') }}">Prices</a></li>
+            <li class="nav-link"><a href="{{ url_for('serve_community') }}">Community</a></li>
+            <li class="nav-link"><a href="{{ url_for('serve_faq') }}">FAQ</a></li>
+            
+            
+        </ul>
+            
+        </div> 
+        <div id="userIcon">
+            <a href="{{ url_for('login') }}">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+
+    </header>
+
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero gridSection">
+        <div class="sectionDesc">
+            <h1 class="headline">
+                Your Gateway to <br>
+                <span class="cryptoText">Smarter</span> <br>
+                Crypto Trading.
+            </h1>
+            <p class="sub-headline">
+                TradeSphere provides fast, secure, and intuitive tools for cryptocurrency trading. 
+                Join thousands of traders leveraging our platform for informed investment decisions.
+            </p>
+            <div class="btnContainer">
+                <a href="{{ url_for('login') }}" class="btn btn1">Get Started</a>
+            </div>
+        </div>
+        <div class="sectionPic" id="sectionPic">
+            <img src="{{ url_for('static', filename='img/rb_2149166905.jpg') }}" alt="Crypto Trading Illustration">
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <h2 class="why-title">
+            <span id="why-typing-text"></span><span class="cursor">|</span>
+        </h2>        
+    <div class="features-container">
+        <div class="feature">
+            <i class="fa-solid fa-lock"></i>
+            <h3>Secure & Reliable</h3>
+            <p>We prioritize security with top-tier encryption and real-time monitoring.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Lightning Fast</h3>
+            <p>Experience high-speed trading with minimal latency and instant transactions.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Advanced Analytics</h3>
+            <p>Get AI-powered insights, real-time price updates, and market predictions.</p>
+        </div>
+    </div>
+    </section>
+
+    
+    <!-- Our Mission Section -->
+    <section class="mission">
+        <div class="mission-content">
+            <h2>Our Mission</h2>
+            <p>At TradeSphere, we empower individuals to navigate the crypto market with confidence, 
+            providing cutting-edge tools and unparalleled security.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="testimonials-title">
+            <span id="typing-text"></span>
+        </h2>
+        <br>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avinash Kr">
+                <p class="testimonial-text">"TradeSphere has revolutionized my trading. The analytics are next level!"</p>
+                <p class="testimonial-author">Avinash Kr</p>
+                <p class="testimonial-role">Crypto Investor</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Bharat Kunal">
+                <p class="testimonial-text">"Finally, a crypto platform that is secure, fast, and user-friendly!"</p><br>
+                <p class="testimonial-author">Bharat Kunal</p>
+                <p class="testimonial-role">Portfolio Manager</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Sarah Mehta">
+                <p class="testimonial-text">"A seamless experience with fantastic support. Highly recommended!"</p>
+                <p class="testimonial-author">Sarah Mehta</p>
+                <p class="testimonial-role">Blockchain Developer</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="James Patel">
+                <p class="testimonial-text">"TradeSphere's security measures give me complete peace of mind!"</p><br>
+                <p class="testimonial-author">James Patel</p>
+                <p class="testimonial-role">Crypto Enthusiast</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Neha Kapoor">
+                <p class="testimonial-text">"Their market insights and real-time updates are game-changers!"</p><br>
+                <p class="testimonial-author">Neha Kapoor</p>
+                <p class="testimonial-role">Day Trader</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Rohan Verma">
+                <p class="testimonial-text">"Best trading platform ever! Easy to use and packed with features."</p><br>
+                <p class="testimonial-author">Rohan Verma</p>
+                <p class="testimonial-role">Financial Analyst</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="about.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function createTypingEffect(elementId, text) {
+                let textElement = document.getElementById(elementId);
+                let index = 0;
+                let typed = false; // Prevent re-typing
+        
+                function typeText() {
+                    if (index < text.length) {
+                        textElement.innerHTML += text[index];
+                        index++;
+                        setTimeout(typeText, 100); // Adjust speed
+                    } else {
+                        textElement.nextElementSibling.style.display = "none"; // Hide cursor
+                    }
+                }
+        
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !typed) {
+                                typed = true;
+                                typeText();
+                            }
+                        });
+                    },
+                    { threshold: 0.5 } // Trigger when 50% of element is visible
+                );
+        
+                observer.observe(textElement);
+            }
+        
+            createTypingEffect("typing-text", "Hear from Our Users");
+            createTypingEffect("why-typing-text", "Why Choose TradeSphere?");
+        });
+        </script>
+        
+        
+        
+</body>
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-container">
+        <!-- Subscription Form -->
+        <div class="subscribe">
+            <input type="email" placeholder="Enter your email" />
+            <button>Subscribe</button>
+        </div>
+
+        <!-- Footer Navigation -->
+        <ul class="footer-links">
+            <li><a href="{{ url_for('serve_about') }}">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+
+        <!-- Bottom Text -->
+        <div class="bottom-text">
+            &copy; 2077 Crypto Companion. All rights reserved.
+        </div>
+
+        <!-- Bottom Links -->
+        <div class="bottom-links">
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+        </div>
+    </div>
+</div>
+</html>
